@@ -89,6 +89,10 @@ userconfigurable = {
     'home_on_startup': "Automatically perform a homing cycle when the machine first connects.",
     'mill_mode': "Activate CNC mill mode.",
     'mill_max_rpm': "Maximum spindle RPM.",
+    'alignment_host': None,
+    'alignment_port': 80,
+    'alignment_host': "IP or hostname of alignment server.",
+    'alignment_port': "Port of alignment server.",
 }
 
 

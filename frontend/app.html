@@ -59,8 +59,8 @@
                 <div id="navbar" class="navbar float-sm-left" style="padding-left:0px; margin:0; border:0">
                     <div class="dropdown" style="padding: .75rem;">
                         <button type="button" class="hamburger" id="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-bars fa-2x"></i>
-                            </button>
+                            <i class="fas fa-bars fa-2x"></i>
+                        </button>
                         <div class="dropdown-wrapper">
                             <div class="dropdown-menu" aria-labelledby="menu">
                                 <button class="dropdown-item" id="export_btn" title="[E]">Export</button>
@@ -90,6 +90,13 @@
                     </div>
                     <form id="open_file_form" action="#" onsubmit="return false;">
                         <input type="file" id="open_file_fld" name="data" style="visibility:hidden; position:fixed">
+                    </form>
+                    <!-- open and align button -->
+                    <div id="open_align_container" class="btn-group menu_btn">
+                        <button id="open_align_btn" class="btn btn-secondary-light" type="submit" title="Open with alignment" data-loading-text='<span class="fa fa-sync spinning"></span>'>Open &amp; Align</button>
+                    </div>
+                    <form id="open_align_file_form" action="#" onsubmit="return false;">
+                        <input type="file" id="open_align_file_fld" name="data" style="visibility:hidden; position:fixed">
                     </form>
                     <!-- process buttons -->
                     <div class="btn-group menu_btn">

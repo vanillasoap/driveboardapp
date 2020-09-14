@@ -347,8 +347,6 @@ def offset(x, y, z):
     return '{}'
 
 
-
-
 ### JOBS QUEUE
 
 def _get_sorted(globpattern, library=False, stripext=False):
@@ -457,6 +455,7 @@ def load():
         name: name of the job (string)
         optimize: flag whether to optimize (bool)
         overwrite: flag whether to overwite file if present (bool)
+        matrix: alignment matrix to apply to dba (3x3 list of lists of float)         
     """
     load_request = json.loads(bottle.request.forms.get('load_request'))
     job = load_request.get('job')  # always a string
@@ -475,12 +474,17 @@ def load():
         overwrite = load_request['overwrite']
     else:
         overwrite = False
+    # alignment matrix
+    if 'matrix' in load_request:
+        matrix = load_request['matrix']
+    else:
+        matrix = None        
     # sanity check
     if job is None or name is None:
         bottle.abort(400, "Invalid request data.")
     # convert
     try:
-        job = jobimport.convert(job, optimize=optimize)
+        job = jobimport.convert(job, optimize=optimize, matrix=matrix) 
     except TypeError:
         if DEBUG: traceback.print_exc()
         bottle.abort(400, "Invalid file type.")
@@ -489,7 +493,6 @@ def load():
         name = _unique_name(name)
     _add(json.dumps(job), name)
     return json.dumps(name)
-
 
 
 @bottle.route('/listing')
@@ -593,7 +596,6 @@ def load_library(jobname):
     return json.dumps(jobname)
 
 
-
 ### JOB EXECUTION
 
 @bottle.route('/run/<jobname>')
@@ -660,8 +662,6 @@ def unstop():
     """Recover machine from stop mode."""
     driveboard.unstop()
     return '{}'
-
-
 
 
 ### MCU MANAGMENT
@@ -788,7 +788,6 @@ def start(browser=False, debug=False):
             pass
 
 
-
 def stop():
     global S
     S.stop()
@@ -796,7 +795,6 @@ def stop():
     # and allow restarting
     del S
     S = Server()
-
 
 
 if __name__ == "__main__":

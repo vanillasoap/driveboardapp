@@ -1,11 +1,11 @@
 function controls_ready() {
     // dropdown //////////////////////////////////////////////////////////////
     $("#help_btn").tooltip({
-    placement: 'bottom',
-    delay: {
-        show: 1000,
-        hide: 100
-    }
+        placement: 'bottom',
+        delay: {
+            show: 1000,
+            hide: 100
+        }
     })
     $("#erase_btn").tooltip({
         placement: 'bottom',
@@ -18,8 +18,7 @@ function controls_ready() {
         $().uxmessage('success', "Erased all jobs")
         request_get({
             url: '/erase',
-            }
-        )
+        })
         $("body").trigger("click")
         return false
     })
@@ -202,6 +201,22 @@ function controls_ready() {
         $('#open_file_fld').trigger('click')
         return false
     })
+    if (app_config_main.alignment_host) {
+        $("#open_align_btn").tooltip({
+            placement: 'bottom',
+            delay: {
+                show: 1000,
+                hide: 100
+            }
+        })
+        $("#open_align_btn").click(function (e) {
+            $('#open_align_file_fld').trigger('click')
+            return false
+        })
+    }
+    else {
+        $("#open_align_container").hide()
+    }
     $("#run_btn").tooltip({
         placement: 'bottom',
         delay: {
@@ -615,7 +630,7 @@ function controls_ready() {
         }
     })
     // shortcut keys //////////////////////////////////////////////////////////
-     Mousetrap.bind(['?'], function (e) {
+    Mousetrap.bind(['?'], function (e) {
         $('#help_btn').trigger('click')
         return false;
     })

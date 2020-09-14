@@ -189,8 +189,9 @@ function passes_pass_html(num, feedrate, intensity, pxsize) {
     '<div role="group" class="btn-group btn-group-sm btn-light btn-block mb-2 btn-light" aria-label="Pass conf">'+
       '<button type="button" id="pass_" class="btn btn-light btn-disabled" disabled>'+'Pass '+num+'</button>'+
       '<button type="button" id="pass_conf_btn_'+num+'" class="btn btn-light" role="button"'+ 'data-toggle="collapse" href="#pass_conf_'+num+'" aria-expanded="false" aria-controls="pass_conf_'+num+'"'+ ">"+'<i class="fas fa-cog"></i>'+'</button>'+
-      '<button type="button" id="swap_up_btn_'+num+'" class="btn btn-light" role="button">'+'<i class="fas fa-arrow-up"></i>'+'</button>'+
       '<button type="button" id="swap_dn_btn_'+num+'" class="btn btn-light" role="button">'+'<i class="fas fa-arrow-down"></i>'+'</button>'+
+      '<button type="button" id="swap_up_btn_'+num+'" class="btn btn-light" role="button">'+'<i class="fas fa-arrow-up"></i>'+'</button>'+
+      
     '</div>'+
     '<div class="collapse" id="pass_conf_'+num+'"><div class="well" style="margin-bottom:10px">'+
       '<div class="input-group input-group-sm">'+
@@ -332,7 +333,7 @@ function passes_update_handler() {
 
     var duration = (jobhandler.getActivePassesDuration() + jobhandler.getSeekPassesLength() * 1/app_config_main.seekrate).toFixed(1)
     if (duration != 0) {
-      $('#job_info_duration').html(' |  min duration: '+duration+' min')
+      $('#job_info_duration').html(' | duration: ≥'+duration+' min')
     } else {
       $('#job_info_duration').html('')
     }
@@ -347,12 +348,12 @@ function passes_set_swapBtns() {
   // for the last pass
 
   // enable all arrow btns
-  $('#job_passes').find('.btn-swap').removeClass('hidden')
-  $('#job_passes').find('.btn-swap').removeClass('hidden')
+  $('#job_passes').find('.btn-swap').css("visibility", "visible")
+  $('#job_passes').find('.btn-swap').css("visibility", "visible")
   // disable swap_up_btn for first pass
-  $('#swap_up_btn_1').addClass('hidden')
+  $('#swap_up_btn_1').css("visibility", "hidden")
   // get number of passes and disable swp_btn_dn for last
   n = $('#job_passes').children('.pass_widget').length
-  $('#swap_dn_btn_'+n).addClass('hidden')
+  $('#swap_dn_btn_'+n).css("visibility", "hidden")
 
 }
