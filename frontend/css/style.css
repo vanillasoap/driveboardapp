@@ -1,133 +1,359 @@
-/* Sticky footer styles
--------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%
 }
+
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  overflow:hidden;
-  background-color: #f2f2f2;
-}
-a, a:active, a:focus {
-  outline:none
-}
-.footer {
-  /*position: absolute;*/
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  /*background-color: #f0f0f0;*/
+    margin-bottom: 60px;
+    background-color: #f8f9fa
 }
 
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-/* remove 'spinners' from input number element */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
     -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    margin: 0
 }
 
-/*
-.moveTo_icon {
-  background: url(../img/moveTo_simple.svg);
-  position: relative;
-  top: 1px;
-  display: inline-block;
+#main_footer,
+#main_navbar {
+    background-color: transparent
 }
-*/
 
 #main_navbar {
-    margin:0;
-    border:0;
-    background-color: transparent;
+    margin: 0;
+    border: 0
 }
 
+.btn-toolbar,
 .menu_btn {
-  padding: 8px;
+    padding: 8px
 }
 
 .footer_btn {
-  padding: 12px;
+    padding: 12px
 }
 
 #main_container {
-  /*position:fixed;
-  top:52px;
-  left:0;*/
-  padding:0;
-  margin:0;
-  /*border: 1px blue solid;*/
-  width:100%;
+    padding: 0;
+    margin: 0;
+    width: 100%
 }
+
+#main_footer {
+    bottom: 0;
+    width: 100%
+}
+
+#canvas_container,
+#job_canvas,
+.pass_widget {
+    background-color: #fff
+}
+
 .container .text-muted {
-  margin: 20px 0;
+    margin: 20px 0
 }
 
 #canvas_container {
-  position: relative;
-  height: 100%;
-  background-color: #ffffff;
+    position: relative;
+    height: 100%
 }
 
 #job_canvas {
-  height: 100%;
-  background-color: #ffffff;
+    height: 100%
 }
 
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+.container {
+    margin-left: 0
 }
-
-code {
-  font-size: 80%;
-}
-
 
 div.log_item {
-  padding:5px;
-  margin: 5px;
+    padding: .5rem;
+    margin: .25rem
 }
+
 div.log_notice {
-  border: 2px solid #aaaaaa;
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb
 }
+
 div.log_success {
-  border: 2px solid green;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    border-radius: .25rem
 }
+
 div.log_warning {
-  border: 2px solid orange;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba
 }
+
 div.log_error {
-  border: 2px solid red;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb
 }
 
+.pass_color_dropdown {
+    padding: .75rem
+}
 
-.pass_color_dropdown > li > a:hover {
+.pass_color_dropdown>li>a:hover {
     background-color: transparent;
     background-image: none;
-    color: white;
+    color: #fff
 }
 
+.dropdown-menu.show {
+    border-radius: .5rem;
+    box-shadow: 0 .25rem 1rem rgba(0, 0, 0, .25)
+}
+
+i.fa-bars:focus,
+i.fa-bars:hover {
+    opacity: .8
+}
+
+.modal-backdrop.show {
+    opacity: .75
+}
+
+.color_select_btn_,
+.dropdown-item,
+.dropdown-item:first-child,
+.table td,
+.table td:hover,
+.table th,
+.table th:hover {
+    border-radius: .25rem
+}
+
+thead {
+    display: none
+}
+
+a,
+a:active,
+a:focus {
+    outline: 0
+}
+
+a:hover {
+    text-decoration: none
+}
+
+.label.label-default.kindmem {
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-shadow: -1px 1px 1px rgba(0, 0, 0, .85);
+    font-size: .75rem;
+    margin-bottom: .25rem
+}
+
+@keyframes spinner-line-fade-more {
+
+    0%,
+    100% {
+        opacity: 0
+    }
+
+    1% {
+        opacity: 1
+    }
+}
+
+@keyframes spinner-line-fade-quick {
+
+    0%,
+    39%,
+    100% {
+        opacity: .25
+    }
+
+    40% {
+        opacity: 1
+    }
+}
+
+@keyframes spinner-line-fade-default {
+
+    0%,
+    100% {
+        opacity: .22
+    }
+
+    1% {
+        opacity: 1
+    }
+}
+
+@keyframes spinner-line-shrink {
+
+    0%,
+    25%,
+    100% {
+        transform: scale(.5);
+        opacity: .25
+    }
+
+    26% {
+        transform: scale(1);
+        opacity: 1
+    }
+}
 
 .spinning {
-    animation: spin 1s infinite linear;
-    transform-origin: 49.5% 49.7%;
+    animation: 1s linear infinite spin;
+    transform-origin: 49.5% 49.7%
 }
 
 @keyframes spin {
-    from { transform: scale(1) rotate(0deg); }
-    to { transform: scale(1) rotate(360deg); }
+    from {
+        transform: scale(1) rotate(0)
+    }
+
+    to {
+        transform: scale(1) rotate(360deg)
+    }
 }
 
-#status_btn_div ul li {
-  padding-top:2px;
-  padding-bottom:2px;
+.btn-swap,
+.btn_conf {
+    color: #999 !important;
+    transition: .3s cubic-bezier(.175, .885, .32, 1.275) !important
+}
+
+.btn-swap:hover,
+.btn_conf:hover {
+    color: #666 !important
+}
+
+.modal.fade .modal-dialog.modal-dialog-zoom {
+    -webkit-transform: translate(0, 0) scale(1.5);
+    transform: translate(0, 0) scale(1.25)
+}
+
+.modal.show .modal-dialog.modal-dialog-zoom {
+    -webkit-transform: translate(0, 0) scale(1);
+    transform: translate(0, 0) scale(1)
+}
+
+.btn-disabled {
+    pointer-events: none
+}
+
+#motion_btn:active~.job_canvas:hover {
+    cursor: none
+}
+
+.btn:not(:disabled):not(.disabled),
+button.dropdown-item {
+    cursor: default
+}
+
+.pass_widget {
+    border-radius: .5rem;
+    padding: .25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .06)
+}
+
+.table-image td,
+.table-image th {
+    vertical-align: middle
+}
+
+.hamburger--boring .hamburger-inner,
+.hamburger--boring .hamburger-inner::before,
+.hamburger--boring .hamburger-inner::after {
+    transition-property: none;
+}
+
+.hamburger--boring.is-active .hamburger-inner {
+    transform: rotate(45deg);
+}
+
+.hamburger--boring.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+}
+
+.hamburger--boring.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+}
+
+.hamburger {
+    padding: 15px 15px;
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+}
+
+.hamburger:hover {
+    opacity: 0.7;
+}
+
+.hamburger.is-active:hover {
+    opacity: 0.7;
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+    background-color: #000;
+}
+
+.hamburger-box {
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    width: 40px;
+    height: 4px;
+    background-color: #000;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: "";
+    display: block;
+}
+
+.hamburger-inner::before {
+    top: -10px;
+}
+
+.hamburger-inner::after {
+    bottom: -10px;
 }

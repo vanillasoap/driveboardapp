@@ -418,6 +418,8 @@ def _clear(limit=None):
         print("file deleted: " + filename)
         if type(limit) is int:
             limit -= 1
+def _erase():
+    os.system("rm -r /root/.driveboardapp/*.dba")
 
 def _add(job, name):
     # add job (dba string)
@@ -556,7 +558,12 @@ def clear():
     _clear()
     return '{}'
 
-
+@bottle.route('/erase')
+@bottle.auth_basic(checkuser)
+def erase():
+    """Clear job list."""
+    _erase()
+    return '{}'
 
 ### LIBRARY
 
