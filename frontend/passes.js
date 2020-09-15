@@ -333,7 +333,7 @@ function passes_update_handler() {
 
     var duration = (jobhandler.getActivePassesDuration() + jobhandler.getSeekPassesLength() * 1/app_config_main.seekrate).toFixed(1)
     if (duration != 0) {
-      $('#job_info_duration').html(' | duration: ≥'+duration+' min')
+      $('#job_info_duration').html(' | duration: ~'+duration+' min')
     } else {
       $('#job_info_duration').html('')
     }
