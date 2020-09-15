@@ -1,6 +1,8 @@
 DriveboardApp
 =============
 
+![screenshot](https://www.dropbox.com/s/e7yrljej6msy787/screenshot.png?raw=1)
+
 DriveboardApp is the official app to control Driveboard-based CNC machines like the [Lasersaur](http://lasersaur.com). Its aim is to provide a simple yet powerful way to control the machine. Its primary features are:
 
 - load svg vector files and send them to the machine
