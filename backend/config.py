@@ -48,7 +48,7 @@ conf = {
     'pxsize': 0.2,                      # size (mm) of beam for rastering
     'max_jobs_in_list': 20,
     'usb_reset_hack': False,
-    'print_serial_data': False,
+    'print_serial_data': True,
     'raster_invert': False,             # Set to True for materials which etch light on dark (eg slate, black marble)
     'raster_mode': 'Bidirectional',     # 'Forward', 'Reverse', 'Bidirectional'
     'raster_leadin': 10,
@@ -360,11 +360,11 @@ def write_config_fields(subconfigdict):
 
 
 def list_configs():
-    print("Config files in " + conf['confdir'] + ":")
+    print(("Config files in " + conf['confdir'] + ":"))
     tempdir = os.getcwd()
     os.chdir(conf['confdir'])
     cfiles = glob.glob('config.*.json')
     for cfile in cfiles:
         confname = cfile.split('.')[1]
-        print("%s - (%s)" % (confname, cfile))
+        print(("%s - (%s)" % (confname, cfile)))
     os.chdir(tempdir)
