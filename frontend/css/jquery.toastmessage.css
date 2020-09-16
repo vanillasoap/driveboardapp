@@ -1,1 +1,137 @@
-.toast-container{z-index:9999;width:18rem;pointer-events:none}* html .toast-container{position:absolute}.toast-item{height:3rem;position:relative;background:rgba(0,0,0,.8);color:#eee;padding:.65rem 1.25rem;margin-bottom:1rem;border:2px solid transparent;border-radius:.5rem;font-size:1rem;display:block}.toast-item p{margin-left:1.5rem;text-align:left}.toast-item-image{width:1.5rem;height:1.5rem;position:absolute;top:50%;margin-top:-.75rem;left:.75rem}.toast-item-close{position:absolute;top:7px;right:7px;width:0;height:22px;background:url(../img/close.svg)}.toast-item-image-notice{background:url(../img/notice.svg) no-repeat;filter:invert(32%) sepia(83%) saturate(3323%) hue-rotate(200deg) brightness(103%) contrast(107%)}.toast-item-image-success{background:url(../img/success.svg) no-repeat;filter:invert(52%) sepia(40%) saturate(802%) hue-rotate(82deg) brightness(93%) contrast(91%)}.toast-item-image-warning{background:url(../img/warning.svg) no-repeat;filter:invert(89%) sepia(99%) saturate(4053%) hue-rotate(316deg) brightness(97%) contrast(94%)}.toast-item-image-error{background:url(../img/error.svg) no-repeat;filter:invert(40%) sepia(89%) saturate(5154%) hue-rotate(337deg) brightness(90%) contrast(90%)}.toast-type-notice{color:#004085;background-color:#cce5ff;border-color:#b8daff}.toast-type-success{color:#155724;background-color:#d4edda;border-color:#c3e6cb}.toast-type-warning{color:#856404;background-color:#fff3cd;border-color:#ffeeba}.toast-type-error{color:#721c24;background-color:#f8d7da;border-color:#f5c6cb}.toast-position-top-left{position:fixed;top:5rem;left:1.25rem}.toast-position-top-center{position:fixed;top:8.5rem;right:17rem;margin-left:-12.5rem}.toast-position-top-right{position:fixed;top:5rem;right:1.25rem}.toast-position-middle-left{position:fixed;top:50%;left:1.25rem;margin-top:-2.5rem}.toast-position-middle-center{position:fixed;top:50%;left:50%;margin-top:-2.5rem;margin-left:-12.5rem}.toast-position-middle-right{position:fixed;top:50%;right:1.25rem;margin-top:-2.5rem;margin-left:-12.5rem}.toast-position-under-square{position:fixed;top:22.5rem;left:.625rem}
+.toast-container {
+    z-index: 9999;
+    width: 18rem;
+    pointer-events: none
+}
+
+* html .toast-container {
+    position: absolute
+}
+
+.toast-item {
+    height: 3rem;
+    position: relative;
+    background: rgba(0, 0, 0, .8);
+    color: #eee;
+    padding: .65rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 2px solid transparent;
+    border-radius: .5rem;
+    font-size: 1rem;
+    display: block
+}
+
+.toast-item p {
+    margin-left: 1.5rem;
+    text-align: left
+}
+
+.toast-item-image {
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: 50%;
+    margin-top: -.75rem;
+    left: .75rem
+}
+
+.toast-item-close {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 0;
+    height: 22px;
+    background: url(../img/close.svg)
+}
+
+.toast-item-image-notice {
+    background: url(../img/notice.svg) no-repeat;
+    filter: invert(32%) sepia(83%) saturate(3323%) hue-rotate(200deg) brightness(103%) contrast(107%)
+}
+
+.toast-item-image-success {
+    background: url(../img/success.svg) no-repeat;
+    filter: invert(52%) sepia(40%) saturate(802%) hue-rotate(82deg) brightness(93%) contrast(91%)
+}
+
+.toast-item-image-warning {
+    background: url(../img/warning.svg) no-repeat;
+    filter: invert(89%) sepia(99%) saturate(4053%) hue-rotate(316deg) brightness(97%) contrast(94%)
+}
+
+.toast-item-image-error {
+    background: url(../img/error.svg) no-repeat;
+    filter: invert(40%) sepia(89%) saturate(5154%) hue-rotate(337deg) brightness(90%) contrast(90%)
+}
+
+.toast-type-notice {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff
+}
+
+.toast-type-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb
+}
+
+.toast-type-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba
+}
+
+.toast-type-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb
+}
+
+.toast-position-top-left {
+    position: fixed;
+    top: 5rem;
+    left: 1.25rem
+}
+
+.toast-position-top-center {
+    position: fixed;
+    top: 5rem;
+    right: 17rem;
+    margin-left: -12.5rem
+}
+
+.toast-position-top-right {
+    position: fixed;
+    top: 5rem;
+    right: 1.25rem
+}
+
+.toast-position-middle-left {
+    position: fixed;
+    top: 50%;
+    left: 1.25rem;
+    margin-top: -2.5rem
+}
+
+.toast-position-middle-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -2.5rem;
+    margin-left: -12.5rem
+}
+
+.toast-position-middle-right {
+    position: fixed;
+    top: 50%;
+    right: 1.25rem;
+    margin-top: -2.5rem;
+    margin-left: -12.5rem
+}
+
+.toast-position-under-square {
+    position: fixed;
+    top: 22.5rem;
+    left: .625rem
+}
