@@ -54,80 +54,79 @@
 <body>
     <main>
         <!-- fixed navbar -->
-        <nav id="main_navbar" class="navbar navbar-default">
-            <div class="container" style="width:100%; padding-left:0">
-                <div id="navbar" class="navbar float-sm-left" style="padding-left:0px; margin:0; border:0">
-                    <div class="dropdown" style="padding: .75rem;">
-                        <button type="button" class="hamburger" id="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bars fa-2x"></i>
-                        </button>
-                        <div class="dropdown-wrapper">
-                            <div class="dropdown-menu" aria-labelledby="menu">
-                                <button class="dropdown-item" id="export_btn" title="[E]">Export</button>
-                                <button class="dropdown-item" id="clear_btn" title="[DEL]">Clear</button>
-                                <div class="dropdown-divider"></div>
-                                <button class="dropdown-item" id="queue_btn" data-toggle="modal" data-target="#queue_modal" title="[Q]">Job Queue</button>
-                                <button class="dropdown-item" id="library_btn" data-toggle="modal" data-target="#library_modal" title="[L]">Library</button>
-                                <div class="dropdown-divider"></div>
-                                <button class="dropdown-item" data-toggle="modal" data-target="#about_modal">About</button>
-                                <a class="dropdown-item" href="https://github.com/nortd/lasersaur/wiki">Manual</a>
-                                <div class="dropdown-divider"></div>
-                                <div class="dropdown-header">Admin</div>
-                                <button class="dropdown-item" id="erase_btn" title="[CTRL-E]">Clear Job Queue</button>
-                                <button class="dropdown-item" id="flash_btn">Flash Firmware</button>
-                                <button class="dropdown-item" id="rebuild_btn" title="Rebuild firmware from sources.">Rebuild Firmware</button>
-                                <button class="dropdown-item" id="reset_btn">Reset Atmega</button>
-                                <button class="dropdown-item" id="config_btn" data-toggle="modal" data-target="#config_modal" title="[C]">Show Configuration</button>
-                                <button class="dropdown-item" id="log_btn" data-toggle="modal" data-target="#log_modal" title="[SHIFT-L]">Log</button>
-                                <div class="dropdown-divider"></div>
-                                <button class="dropdown-item" id="help_btn" data-toggle="modal" data-target="#help_modal" title="[?]">Help</button>
-                            </div>
+        <nav id="main_navbar" class="navbar" style="top:-1.5rem;height:4rem;padding-left:0">
+            <div id="navbar" class="navbar" style="padding-left:.25rem">
+                <div class="dropdown" style="padding: .75rem;">
+                    <button type="button" class="hamburger" id="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="dropdown-wrapper">
+                        <div class="dropdown-menu" style="font-size: .875rem;margin-top: -1rem;" aria-labelledby="menu">
+                            <button class="dropdown-item" id="export_btn" title="[E]">Export</button>
+                            <button class="dropdown-item" id="clear_btn" title="[DEL]">Clear</button>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item" id="queue_btn" data-toggle="modal" data-target="#queue_modal" title="[Q]">Job Queue</button>
+                            <button class="dropdown-item" id="library_btn" data-toggle="modal" data-target="#library_modal" title="[L]">Library</button>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item" data-toggle="modal" data-target="#about_modal">About</button>
+                            <a class="dropdown-item" href="https://github.com/nortd/lasersaur/wiki">Manual</a>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">Admin</div>
+                            <button class="dropdown-item" id="erase_btn" title="[CTRL-E]">Clear Job Queue</button>
+                            <button class="dropdown-item" id="flash_btn">Flash Firmware</button>
+                            <button class="dropdown-item" id="rebuild_btn" title="Rebuild firmware from sources.">Rebuild Firmware</button>
+                            <button class="dropdown-item" id="reset_btn">Reset Atmega</button>
+                            <button class="dropdown-item" id="config_btn" data-toggle="modal" data-target="#config_modal" title="[C]">Show Configuration</button>
+                            <button class="dropdown-item" id="log_btn" data-toggle="modal" data-target="#log_modal" title="[SHIFT-L]">Log</button>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item" id="help_btn" data-toggle="modal" data-target="#help_modal" title="[?]">Help</button>
                         </div>
                     </div>
-                    <!-- open button -->
-                    <div class="btn-group menu_btn">
-                        <button id="open_btn" class="btn btn-secondary-light" type="submit" title="Import new job [ENTER]" data-loading-text='<span class="fas fa-refresh spinning"></span>' aria-label="Open"><i class="fas fa-file-import"></i>&ensp;Open</button>
-                    </div>
-                    <form id="open_file_form" action="#" onsubmit="return false;">
-                        <input type="file" id="open_file_fld" name="data" style="visibility:hidden; position:fixed">
-                    </form>
-                    <!-- open and align button -->
-                    <div id="open_align_container" class="btn-group menu_btn">
-                        <button id="open_align_btn" class="btn btn-secondary-light" type="submit" title="Open with alignment" data-loading-text='<span class="fa fa-sync spinning"></span>'>Open &amp; Align</button>
-                    </div>
-                    <form id="open_align_file_form" action="#" onsubmit="return false;">
-                        <input type="file" id="open_align_file_fld" name="data" style="visibility:hidden; position:fixed">
-                    </form>
-                    <!-- process buttons -->
-                    <div class="btn-group menu_btn">
-                        <button id="run_btn" class="btn btn-primary glow ladda-button" data-style="expand-right" aria-label="Run" style="min-width:90px">
-                            <span class="ladda-label">Run</span>
-                        </button>
-                        <button id="boundary_btn" class="btn glow btn-primary" type="submit" title="Run bounding box [CTRL-SHIFT-ENTER]" aria-label="Run bounding box" data-loading-text='<span class="fas fa-refresh spinning"></span>'>
-                            <span class="fas fa-expand"></span>
-                        </button>
-                    </div>
-                    <!-- pause/play/stop buttons -->
-                    <div class="btn-group menu_btn">
-                        <!-- pause button -->
-                        <button id="pause_btn" class="btn btn-secondary-light btn-lg" type="submit" title="Toggle pause. [SPACE]" aria-label="Play/Pause job">
-                            <span id="pause_glyph" class="fas fa-pause"></span>
-                            <span id="play_glyph" class="fas fa-play" style="display:none"></span>
-                        </button>
-                        <!-- stop button -->
-                        <button id="stop_btn" class="btn btn-secondary-light btn-lg" type="submit" title="Stop job. [CTRL-ESC]" aria-label="Stop job">
-                            <span class="fas fa-stop"></span>
-                        </button>
-                    </div>
-                    <!-- job info -->
-                    <div id="job_info" class="float-sm-left" style="font-size:1rem; margin:13px; color:#999999">
-                        <span id="job_info_name"></span>
-                        <a id="info_btn" style="display:none; margin-left:4px; position:relative; top:1px" data-toggle="modal" data-target="#info_modal">
-                            <span class="fas fa-info-sign" style="color:#888888"></span>
-                        </a>
-                        <span id="job_info_length"></span><span id="job_info_duration"></span>
-                    </div>
                 </div>
+                <!-- open button -->
+                <div class="btn-group menu_btn">
+                    <button id="open_btn" class="btn btn-sm btn-secondary-light" type="submit" title="Import new job [ENTER]" data-loading-text='<span class="fas fa-refresh spinning"></span>' aria-label="Open"><i class="fas fa-file-import"></i>&ensp;Open</button>
+                </div>
+                <form id="open_file_form" action="#" onsubmit="return false;">
+                    <input type="file" id="open_file_fld" name="data" style="visibility:hidden; position:fixed">
+                </form>
+                <!-- open and align button -->
+                <div id="open_align_container" class="btn-group menu_btn">
+                    <button id="open_align_btn" class="btn btn-sm btn-secondary-light" type="submit" title="Open with alignment" data-loading-text='<span class="fa fa-sync spinning"></span>'>Open &amp; Align</button>
+                </div>
+                <form id="open_align_file_form" action="#" onsubmit="return false;">
+                    <input type="file" id="open_align_file_fld" name="data" style="visibility:hidden; position:fixed">
+                </form>
+                <!-- process buttons -->
+                <div class="btn-group btn-group-sm menu_btn">
+                    <button id="run_btn" class="btn btn-primary glow ladda-button" data-style="expand-right" aria-label="Run" style="min-width:90px">
+                        <span class="ladda-label">Run</span>
+                    </button>
+                    <button id="boundary_btn" class="btn glow btn-primary" type="submit" title="Run bounding box [CTRL-SHIFT-ENTER]" aria-label="Run bounding box" data-loading-text='<span class="fas fa-refresh spinning"></span>'>
+                        <span class="fas fa-expand"></span>
+                    </button>
+                </div>
+                <!-- pause/play/stop buttons -->
+                <div class="btn-group  menu_btn">
+                    <!-- pause button -->
+                    <button id="pause_btn" class="btn btn-secondary-light" type="submit" title="Toggle pause. [SPACE]" aria-label="Play/Pause job">
+                        <span id="pause_glyph" class="fas fa-pause"></span>
+                        <span id="play_glyph" class="fas fa-play" style="display:none"></span>
+                    </button>
+                    <!-- stop button -->
+                    <button id="stop_btn" class="btn btn-secondary-light" type="submit" title="Stop job. [CTRL-ESC]" aria-label="Stop job">
+                        <span class="fas fa-stop"></span>
+                    </button>
+                </div>
+                <!-- job info -->
+                <div id="job_info" class="float-sm-left" style="font-size:1rem; margin:13px; color:#999999">
+                    <span id="job_info_name"></span>
+                    <a id="info_btn" style="display:none; margin-left:4px; position:relative; top:1px" data-toggle="modal" data-target="#info_modal">
+                        <span class="fas fa-info-sign" style="color:#888888"></span>
+                    </a>
+                    <span id="job_info_length"></span><span id="job_info_duration"></span>
+                </div>
+            </div>
         </nav>
         <!-- begin page content -->
         <div id="main_container" class="container-fluid">
@@ -149,7 +148,7 @@
                     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                         <div class="btn-group mr-2" role="group" aria-label="First group">
                             <!-- status indicator -->
-                            <div id="status_btn_div" class="btn-group dropup footer_btn">
+                            <div id="status_btn_div" class="btn-group btn-group-sm dropup footer_btn">
                                 <button type="button" id="status_btn" class="btn btn-danger glow dropdown-toggle-split btn-disabled" aria-haspopup="false" aria-expanded="false">Status&ensp;<span id="status_glyph" class="fas fa-exchange"></button>
                                 <button type="button" class="btn btn-danger dropdown-toggle glow dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     <div class="dropdown-wrapper">
@@ -196,7 +195,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="btn-group footer_btn" role="group" aria-label="Second group" style="padding-left: 0;">
+                        <div class="btn-group btn-group-sm footer_btn" role="group" aria-label="Second group" style="padding-left: 0;">
                             <!-- origin button -->
                             <button id="origin_btn" class="btn btn-secondary-light" type="submit" title="move to origin [0]"> (0,0) </button>
                             <!-- homing button -->
@@ -205,21 +204,23 @@
                             </button>
                         </div>
                         <!-- input fields and button to perform relative move-->
-                        <div class="input-group footer_btn" role="group" aria-label="Third group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" title="𝗫 axis" id="x_span">d𝗫</span>
-                            </div>
-                            <input type="text" class="form-control input-m" id="x_input" aria-label="x_input" placeholder="0" style="max-width: 4rem;border-right: 0;">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" title="𝗫 axis" id="x_span">d𝗬</span>
-                            </div>
-                            <input type="text" class="form-control input-m" id="y_input" aria-label="y_input" placeholder="0" style="max-width: 4rem;">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary-light" type="button" id="moveBy_btn" title="Relative move by d𝗫, d𝗬" aria-label="Move by"><span class="fas fa-location"></span></button>
+                        <div class=" footer_btn" role="group" aria-label="Third group">
+                            <div class="input-group input-group-sm" role="group" aria-label="Third group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" title="𝗫 axis" id="x_span">d𝗫</span>
+                                </div>
+                                <input type="text" class="form-control input-m" id="x_input" aria-label="x_input" placeholder="0" style="max-width: 4rem;border-right: 0;">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" title="𝗫 axis" id="x_span">d𝗬</span>
+                                </div>
+                                <input type="text" class="form-control input-m" id="y_input" aria-label="y_input" placeholder="0" style="max-width: 4rem;">
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary-light" type="button" id="moveBy_btn" title="Relative move by d𝗫, d𝗬" aria-label="Move by"><span class="fas fa-location"></span></button>
+                                </div>
                             </div>
                         </div>
                         <!-- Operators-->
-                        <div class="btn-group btn-group-toggle footer_btn" data-toggle="buttons" role="group" aria-label="Fourth group">
+                        <div class="btn-group btn-group-toggle btn-group-sm footer_btn" data-toggle="buttons" role="group" aria-label="Fourth group">
                             <label id="select_btn" class="btn btn-secondary-light active" title="Select paths">
                                 <input type="radio" name="options" autocomplete="off" checked>Select</label>
                             <label id="offset_set_btn" class="btn btn-secondary-light" title="Set offset to current position [o]">
@@ -234,7 +235,7 @@
                         <div class="btn-group footer_btn" role="group" aria-label="Fifth group">
                             <!-- add fill button -->
                             <div id="addfill_wgt" class="dropdown input-group dropup tool_extra_btn">
-                                <button id="addfill_btn" class="btn btn-secondary-light ladda-button" data-style="expand-right" data-spinner-color="#000000" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="add fill to paths">
+                                <button id="addfill_btn" class="btn btn-sm btn-secondary-light ladda-button" data-style="expand-right" data-spinner-color="#000000" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="add fill to paths">
                                     <span class="fas fa-plus"></span>&ensp;Fill</button>
                                 <div class="dropdown-wrapper">
                                     <div id="addfill_colors" class="dropdown-menu pass_color_dropdown" aria-labelledby="addfill_btn">No job loaded.</div>
