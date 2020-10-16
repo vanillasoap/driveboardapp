@@ -40,7 +40,7 @@ conf = {
     'firmware': None,                   # defined further down
     'tolerance': 0.01,
     'workspace': [1220,610,0],
-    'grid_mm': 100,
+    'grid_mm': 10,
     'seekrate': 6000,
     'feedrate': 2000,
     'intensity': 0,

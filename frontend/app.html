@@ -150,46 +150,47 @@
                             <!-- status indicator -->
                             <div id="status_btn_div" class="btn-group btn-group-sm dropup footer_btn">
                                 <button type="button" id="status_btn" class="btn btn-danger glow dropdown-toggle-split btn-disabled" aria-haspopup="false" aria-expanded="false">Status&ensp;<span id="status_glyph" class="fas fa-exchange"></button>
-                                <button type="button" class="btn btn-danger dropdown-toggle glow dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                <button type="button" id="status_btn" class="btn btn-warning glow dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     <div class="dropdown-wrapper">
                                         <div class="dropdown-menu" style="padding:1rem">
                                             <div class="dropdown-header">Connections</div>
                                             <div>
-                                                <span id="status_server" class="label label-danger">Server</span>
-                                                <span id="status_serial" class="label label-defadivt">Serial</span>
+                                                <span id="status_server" class="badge badge-pill badge-danger">Server</span>
+                                                <span id="status_serial" class="badge badge-pill badge-light">Serial</span>
                                             </div>
                                             <div class="dropdown-header">Errors</div>
                                             <div>
-                                                <span id="status_divmit_x1" class="label label-defadivt status_hw">divmit x1</span>
-                                                <span id="status_divmit_x2" class="label label-defadivt status_hw">divmit x2</span>
+                                                <span id="status_limit_x1" class="badge badge-pill badge-light status_hw">Limit x1</span>
+                                                <span id="status_limit_x2" class="badge badge-pill badge-light status_hw">Limit x2</span>
                                             </div>
                                             <div>
-                                                <span id="status_divmit_y1" class="label label-defadivt status_hw">divmit y1</span>
-                                                <span id="status_divmit_y2" class="label label-defadivt status_hw">divmit y2</span>
+                                                <span id="status_limit_y1" class="badge badge-pill badge-light status_hw">Limit y1</span>
+                                                <span id="status_limit_y2" class="badge badge-pill badge-light status_hw">Limit y2</span>
                                             </div>
                                             <div>
-                                                <span id="status_divmit_z1" class="label label-defadivt status_hw">divmit z1</span>
-                                                <span id="status_divmit_z2" class="label label-defadivt status_hw">divmit z2</span>
+                                                <span id="status_limit_z1" class="badge badge-pill badge-light status_hw">Limit z1</span>
+                                                <span id="status_limit_z2" class="badge badge-pill badge-light status_hw">Limit z2</span>
                                             </div>
                                             <div>
-                                                <span id="status_requested" class="label label-defadivt status_hw">Requested</span>
-                                                <span id="status_buffer" class="label label-defadivt status_hw">Buffer</span>
+                                                <span id="status_requested" class="badge badge-pill badge-light status_hw">Requested</span>
+                                                <span id="status_buffer" class="badge badge-pill badge-light status_hw">Buffer</span>
                                             </div>
                                             <div>
-                                                <span id="status_marker" class="label label-defadivt status_hw">Marker</span>
-                                                <span id="status_data" class="label label-defadivt status_hw">Data</span>
+                                                <span id="status_marker" class="badge badge-pill badge-light status_hw">Marker</span>
+                                                <span id="status_data" class="badge badge-pill badge-light status_hw">Data</span>
                                             </div>
                                             <div>
-                                                <span id="status_command" class="label label-defadivt status_hw">Command</span>
-                                                <span id="status_parameter" class="label label-defadivt status_hw">Parameter</span>
+                                                <span id="status_command" class="badge badge-pill badge-light status_hw">Command</span>
+                                                <span id="status_parameter" class="badge badge-pill badge-light status_hw">Parameter</span>
                                             </div>
                                             <div>
-                                                <span id="status_transmission" class="label label-defadivt status_hw">Transmission</span>
+                                                <span id="status_transmission" class="badge badge-pill badge-light status_hw">Transmission</span>
                                             </div>
+                                            <!-- <div role="separator" class="divider"></div> -->
                                             <div class="dropdown-header">Warnings</div>
                                             <div>
-                                                <span id="status_door" class="label label-defadivt status_hw">Door</span>
-                                                <span id="status_chiller" class="label label-defadivt status_hw">Chiller</span>
+                                                <span id="status_door" class="badge badge-pill badge-light status_hw">Door</span>
+                                                <span id="status_chiller" class="badge badge-pill badge-light status_hw">Chiller</span>
                                             </div>
                                         </div>
                                     </div>
