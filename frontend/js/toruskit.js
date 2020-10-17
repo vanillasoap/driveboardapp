@@ -16,45 +16,45 @@ if (!Object.entries) {
 var TORUS;
 
 (function() {
-	TORUS = TORUS || {};
+  TORUS = TORUS || {};
 
-	/**
-	 * Background Image
-	 */
-	TORUS.backgroundImage = function(selector) {
-		Array.from(document.querySelectorAll(selector), function(element) {
-			let image = element.querySelector(".bg-img");
-			if (image) {
-				element.style.setProperty("background-image", "url(" + image.getAttribute("src") + ")");
-			}
-		});
-	};
-	TORUS.backgroundImage(".has-bg-img, .has-bg-pattern");
+  /**
+   * Background Image
+   */
+  TORUS.backgroundImage = function(selector) {
+    Array.from(document.querySelectorAll(selector), function(element) {
+      let image = element.querySelector(".bg-img");
+      if (image) {
+        element.style.setProperty("background-image", "url(" + image.getAttribute("src") + ")");
+      }
+    });
+  };
+  TORUS.backgroundImage(".has-bg-img, .has-bg-pattern");
 
-	/**
-	 * Chrome range progress
-	 */
-	TORUS.webkitRangeProgress = function(selector) {
-		let range;
-		let countRange = function(element) {
-			let min = element.min || 0;
-			let max = element.max || 100;
-			range = ((element.value - min) / (max - min)) * 100;
-			element.style.setProperty("--range", range + "%");
-		}
+  /**
+   * Chrome range progress
+   */
+  TORUS.webkitRangeProgress = function(selector) {
+    let range;
+    let countRange = function(element) {
+      let min = element.min || 0;
+      let max = element.max || 100;
+      range = ((element.value - min) / (max - min)) * 100;
+      element.style.setProperty("--range", range + "%");
+    }
 
-		Array.from(document.querySelectorAll(selector), function(element) {
-			countRange(element);
-			element.addEventListener("input", function(e) {
-				countRange(e.target);
-			}, false);
-		});
-	};
+    Array.from(document.querySelectorAll(selector), function(element) {
+      countRange(element);
+      element.addEventListener("input", function(e) {
+        countRange(e.target);
+      }, false);
+    });
+  };
   TORUS.webkitRangeProgress(".custom-range-progress");
 
   /**
-	 * Add class after scroll
-	 */
+   * Add class after scroll
+   */
   TORUS.scrollAction = function(selector) {
     "use strict";
 
@@ -94,23 +94,23 @@ var TORUS;
   }
   TORUS.scrollAction("[data-scroll-action]");
 
-	/**
-	 * Custom number input counter
-	 */
-	(function() {
-		Array.from(document.querySelectorAll(".btn-custom-number-up"), element => {
-			element.addEventListener("click", () => {
-				const input = document.querySelector(element.getAttribute("target"));
-				input.stepUp();
-			})
-		});
+  /**
+   * Custom number input counter
+   */
+  (function() {
+    Array.from(document.querySelectorAll(".btn-custom-number-up"), element => {
+      element.addEventListener("click", () => {
+        const input = document.querySelector(element.getAttribute("target"));
+        input.stepUp();
+      })
+    });
 
-		Array.from(document.querySelectorAll(".btn-custom-number-down"), element => {
-			element.addEventListener("click", () => {
-				const input = document.querySelector(element.getAttribute("target"));
-				input.stepDown();
-			})
-		});
+    Array.from(document.querySelectorAll(".btn-custom-number-down"), element => {
+      element.addEventListener("click", () => {
+        const input = document.querySelector(element.getAttribute("target"));
+        input.stepDown();
+      })
+    });
   }());
 
   /**
@@ -976,9 +976,9 @@ var TORUS;
     }
   }
 
-	/**
-	 * Loops [data-loop]
-	 */
+  /**
+   * Loops [data-loop]
+   */
   let TorusLoop = function() {
     this.init = function(){
       for(const el of document.querySelectorAll("[data-loop*='[']")) {
@@ -987,8 +987,8 @@ var TORUS;
             let propertyName, propertyValue;
 
             propertyName = elLoop.slice(0, elLoop.indexOf("["));
-					  propertyValue = elLoop.slice(elLoop.indexOf("[") + 1, elLoop.indexOf("]"));
-					  valuesArray = propertyValue.split(":");
+            propertyValue = elLoop.slice(elLoop.indexOf("[") + 1, elLoop.indexOf("]"));
+            valuesArray = propertyValue.split(":");
 
             if (propertyName) {
               el.style.setProperty(`--a-${propertyName}`, propertyValue);
@@ -1029,9 +1029,9 @@ var TORUS;
     this.init();
   }
 
-	/**
-	 * Custom class property
-	 */
+  /**
+   * Custom class property
+   */
   let TorusClassProperty = function() {
     this.init = function(){
       for(const el of document.querySelectorAll("[class*='[']")) {
@@ -1072,7 +1072,7 @@ var TORUS;
   // String to camel case
   //
   function toCamelCase(str) {
-		return str.replace( /[-_]+/g, ' ').replace( / (.)/g, function($1) { return $1.toUpperCase(); }).replace( / /g, '' );
+    return str.replace( /[-_]+/g, ' ').replace( / (.)/g, function($1) { return $1.toUpperCase(); }).replace( / /g, '' );
   }
 
   function calculateTransform(elementPosition, customValue, multiplier) {

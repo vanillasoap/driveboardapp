@@ -233,7 +233,7 @@ function controls_ready() {
         }
         // check for passes
         if (!jobhandler.hasPasses()) {
-            $().uxmessage('notice', "No passes assigned to this job.")
+            $().uxmessage('notice', "No passes assigned to job.")
             return false
         }
         // check for machine

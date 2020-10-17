@@ -49,6 +49,7 @@
     <script src="library.js"></script>
     <script src="status.js"></script>
     <script src="fills.js"></script>
+    <script src="presets.js"></script>
 </head>
 
 <body>
@@ -64,6 +65,7 @@
                         <div class="dropdown-menu" style="font-size: .875rem;margin-top: -1rem;" aria-labelledby="menu">
                             <button class="dropdown-item" id="export_btn" title="[E]">Export</button>
                             <button class="dropdown-item" id="clear_btn" title="[DEL]">Clear</button>
+                            <button class="dropdown-item" id="presets_btn" data-toggle="modal" data-target="#presets_modal">Presets</button>
                             <div class="dropdown-divider"></div>
                             <button class="dropdown-item" id="queue_btn" data-toggle="modal" data-target="#queue_modal" title="[Q]">Job Queue</button>
                             <button class="dropdown-item" id="library_btn" data-toggle="modal" data-target="#library_modal" title="[L]">Library</button>
@@ -145,55 +147,56 @@
             <!-- footer -->
             <footer id="main_footer" class="footer">
                 <div class="container">
-                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Footer toolbar">
+                        <div class="btn-group btn-group-sm mr-2" role="group" aria-label="First group">
                             <!-- status indicator -->
-                            <div id="status_btn_div" class="btn-group btn-group-sm dropup footer_btn">
-                                <button type="button" id="status_btn" class="btn btn-danger glow dropdown-toggle-split btn-disabled" aria-haspopup="false" aria-expanded="false">Status&ensp;<span id="status_glyph" class="fas fa-exchange"></button>
-                                <button type="button" id="status_btn" class="btn btn-warning glow dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                                    <div class="dropdown-wrapper">
-                                        <div class="dropdown-menu" style="padding:1rem">
-                                            <div class="dropdown-header">Connections</div>
-                                            <div>
-                                                <span id="status_server" class="badge badge-pill badge-danger">Server</span>
-                                                <span id="status_serial" class="badge badge-pill badge-light">Serial</span>
-                                            </div>
-                                            <div class="dropdown-header">Errors</div>
-                                            <div>
-                                                <span id="status_limit_x1" class="badge badge-pill badge-light status_hw">Limit x1</span>
-                                                <span id="status_limit_x2" class="badge badge-pill badge-light status_hw">Limit x2</span>
-                                            </div>
-                                            <div>
-                                                <span id="status_limit_y1" class="badge badge-pill badge-light status_hw">Limit y1</span>
-                                                <span id="status_limit_y2" class="badge badge-pill badge-light status_hw">Limit y2</span>
-                                            </div>
-                                            <div>
-                                                <span id="status_limit_z1" class="badge badge-pill badge-light status_hw">Limit z1</span>
-                                                <span id="status_limit_z2" class="badge badge-pill badge-light status_hw">Limit z2</span>
-                                            </div>
-                                            <div>
-                                                <span id="status_requested" class="badge badge-pill badge-light status_hw">Requested</span>
-                                                <span id="status_buffer" class="badge badge-pill badge-light status_hw">Buffer</span>
-                                            </div>
-                                            <div>
-                                                <span id="status_marker" class="badge badge-pill badge-light status_hw">Marker</span>
-                                                <span id="status_data" class="badge badge-pill badge-light status_hw">Data</span>
-                                            </div>
-                                            <div>
-                                                <span id="status_command" class="badge badge-pill badge-light status_hw">Command</span>
-                                                <span id="status_parameter" class="badge badge-pill badge-light status_hw">Parameter</span>
-                                            </div>
-                                            <div>
-                                                <span id="status_transmission" class="badge badge-pill badge-light status_hw">Transmission</span>
-                                            </div>
-                                            <!-- <div role="separator" class="divider"></div> -->
-                                            <div class="dropdown-header">Warnings</div>
-                                            <div>
-                                                <span id="status_door" class="badge badge-pill badge-light status_hw">Door</span>
-                                                <span id="status_chiller" class="badge badge-pill badge-light status_hw">Chiller</span>
-                                            </div>
+                            <div id="status_btn_div" class="btn-group btn-group-sm footer_btn dropup" data-display="static">
+                                <button type="button" id="status_btn dropdownMenuButton" class="btn btn-danger glow dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Status&ensp;
+                                    <i id="status_glyph" class="fas fa-exchange"></i>
+                                </button>
+                                <div class="dropdown-wrapper" data->
+                                    <div class="dropdown-menu dropdown-menu-left caret" style="width: 12rem" aria-labelledby="dropdownMenuButton">
+                                        <div class="dropdown-header">Connections</div>
+                                        <div>
+                                            <span id="status_server" class="badge badge-pill badge-danger">Server</span>
+                                            <span id="status_serial" class="badge badge-pill badge-secondary-light">Serial</span>
+                                        </div>
+                                        <div class="dropdown-header">Errors</div>
+                                        <div>
+                                            <span id="status_limit_x1" class="badge badge-pill badge-secondary-light status_hw">Limit x1</span>
+                                            <span id="status_limit_x2" class="badge badge-pill badge-secondary-light status_hw">Limit x2</span>
+                                        </div>
+                                        <div>
+                                            <span id="status_limit_y1" class="badge badge-pill badge-secondary-light status_hw">Limit y1</span>
+                                            <span id="status_limit_y2" class="badge badge-pill badge-secondary-light status_hw">Limit y2</span>
+                                        </div>
+                                        <div>
+                                            <span id="status_limit_z1" class="badge badge-pill badge-secondary-light status_hw">Limit z1</span>
+                                            <span id="status_limit_z2" class="badge badge-pill badge-secondary-light status_hw">Limit z2</span>
+                                        </div>
+                                        <div>
+                                            <span id="status_requested" class="badge badge-pill badge-secondary-light status_hw">Requested</span>
+                                            <span id="status_buffer" class="badge badge-pill badge-secondary-light status_hw">Buffer</span>
+                                        </div>
+                                        <div>
+                                            <span id="status_marker" class="badge badge-pill badge-secondary-light status_hw">Marker</span>
+                                            <span id="status_data" class="badge badge-pill badge-secondary-light status_hw">Data</span>
+                                        </div>
+                                        <div>
+                                            <span id="status_command" class="badge badge-pill badge-secondary-light status_hw">Command</span>
+                                            <span id="status_parameter" class="badge badge-pill badge-secondary-light status_hw">Parameter</span>
+                                        </div>
+                                        <div>
+                                            <span id="status_transmission" class="badge badge-pill badge-secondary-light status_hw">Transmission</span>
+                                        </div>
+                                        <!-- <div role="separator" class="divider"></div> -->
+                                        <div class="dropdown-header">Warnings</div>
+                                        <div>
+                                            <span id="status_door" class="badge badge-pill badge-secondary-light status_hw">Door</span>
+                                            <span id="status_chiller" class="badge badge-pill badge-secondary-light status_hw">Chiller</span>
                                         </div>
                                     </div>
+                                </div>
                             </div>
                         </div>
                         <div class="btn-group btn-group-sm footer_btn" role="group" aria-label="Second group" style="padding-left: 0;">
@@ -247,7 +250,7 @@
             </footer>
     </main>
     <!-- connecting modal -->
-    <div id="connect_modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="connect_modal" aria-hidden="true">
+    <div class="modal" id="connect_modal" tabindex="-1" role="dialog" aria-labelledby="connect_modal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -371,6 +374,22 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- preset settings modal -->
+    <div class="modal fade" id="presets_modal" tabindex="-1" role="dialog" aria-labelledby="Presets" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-zoom">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="presets_header">Presets</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="presets_content" class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <!-- help modal -->
     <div class="modal fade" id="help_modal" tabindex="-1" role="dialog" aria-labelledby="Library" aria-hidden="true">

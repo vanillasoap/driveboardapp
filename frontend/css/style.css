@@ -117,7 +117,7 @@ div.log_error {
     color: #fff
 }
 
-.dropdown-menu.show {
+.dropdown-menu {
     border-radius: .5rem;
     box-shadow: 0 .25rem 1rem rgba(0, 0, 0, .25)
 }
@@ -139,10 +139,6 @@ i.fa-bars:hover {
 .table th,
 .table th:hover {
     border-radius: .25rem
-}
-
-thead {
-    display: none
 }
 
 a,
@@ -366,4 +362,10 @@ button.dropdown-item {
 
 .hamburger-inner::after {
     bottom: -10px;
+}
+
+#pass_conf_btn_1,
+#swap_dn_btn_1 {
+    border-top-right-radius: 0.2rem!important;
+    border-bottom-right-radius:0.2rem!important;
 }

@@ -147,7 +147,6 @@ function status_check_new(data1, data2) {
   return flag
 }
 
-
 function status_set_main_button(status) {
   if (!status.server) {  // disconnected
     $('#connect_modal').modal('show')
@@ -194,18 +193,18 @@ var status_handlers = {
       $().uxmessage('warning', "Server LOST.")
       $("#status_server").removeClass("badge-success").addClass("badge-danger")
       // gray-out all dependant indicators
-      $('#status_serial').removeClass("badge-danger badge-success").addClass("badge-light")
-      $(".status_hw").removeClass("badge-success badge-danger badge-warning").addClass("badge-light")
+      $('#status_serial').removeClass("badge-danger badge-success").addClass("badge-secondary-light")
+      $(".status_hw").removeClass("badge-success badge-danger badge-warning").addClass("badge-secondary-light")
     }
     status_set_main_button(status)
   },
   'serial': function (status) {
     if (status.serial) {  // serial up
-      $('#status_serial').removeClass("badge-light badge-danger").addClass("badge-success")
+      $('#status_serial').removeClass("badge-secondary-light badge-danger").addClass("badge-success")
     } else {  // serial down
-      $('#status_serial').removeClass("badge-light badge-success").addClass("badge-danger")
+      $('#status_serial').removeClass("badge-secondary-light badge-success").addClass("badge-danger")
       // gray-out all hardware indicators
-      $(".status_hw").removeClass("badge-success badge-danger badge-warning").addClass("badge-light")
+      $(".status_hw").removeClass("badge-success badge-danger badge-warning").addClass("badge-secondary-light")
     }
     status_set_main_button(status)
   },
@@ -255,14 +254,14 @@ var status_handlers = {
   'paused': function (status) {
     if (status.paused) {
       // pause button
-      $("#pause_btn").removeClass("btn-default").addClass("btn-primary")
+      $("#pause_btn").removeClass("btn-secondary-light").addClass("btn-primary")
       $("#pause_glyph").hide()
       $("#play_glyph").show()
       // run button
       $('#run_btn span.ladda-spinner').hide()
     } else {
       // pause button
-      $("#pause_btn").removeClass("btn-primary").addClass("btn-default")
+      $("#pause_btn").removeClass("btn-primary").addClass("btn-secondary-light")
       $("#play_glyph").hide()
       $("#pause_glyph").show()
       // run button
@@ -299,7 +298,7 @@ var status_handlers = {
   //// stop conditions
   'stops': function (status) {
     // reset all stop error indicators
-    $(".status_hw").removeClass("badge-light")
+    $(".status_hw").removeClass("badge-secondary-light")
     $('#status_limit_x1').removeClass("badge-danger").addClass("badge-success")
     $('#status_limit_x2').removeClass("badge-danger").addClass("badge-success")
     $('#status_limit_y1').removeClass("badge-danger").addClass("badge-success")
@@ -353,13 +352,13 @@ var status_handlers = {
   },
   'info': function (status) {
     // reset all info indicators
-    $(".status_hw").removeClass("badge-light")
-    $('#status_door').removeClass("badge-warning").addClass("badge-success")
-    $('#status_chiller').removeClass("badge-warning").addClass("badge-success")
+    $(".status_hw").removeClass("badge-secondary-light")
+    $('#status_door').removeClass("label-warning").addClass("badge-success")
+    $('#status_chiller').removeClass("label-warning").addClass("badge-success")
     // set info indicators
     if ('info' in status) {
-      if (status.info.door) {$('#status_door').removeClass("badge-success").addClass("badge-warning")}
-      if (status.info.chiller) {$('#status_chiller').removeClass("badge-success").addClass("badge-warning")}
+      if (status.info.door) {$('#status_door').removeClass("badge-success").addClass("label-warning")}
+      if (status.info.chiller) {$('#status_chiller').removeClass("badge-success").addClass("label-warning")}
     }
     status_set_main_button(status)
   },
