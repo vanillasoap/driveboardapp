@@ -216,7 +216,7 @@ function passes_pass_html(num, feedrate, intensity, pxsize) {
         </div>
         <form id="passform_${num}">
         <div class="form-row">
-            <div class="form-group col">
+            <div class="form-group col" style="margin-bottom: 0;">
                 <div class="input-group input-group-sm">
                     <div class="input-group-prepend">
                         <span class="input-group-text">F</span>
@@ -224,7 +224,7 @@ function passes_pass_html(num, feedrate, intensity, pxsize) {
                     <input type="text" class="form-control form-control-sm feedrate" value="${feedrate}" title="feedrate">
                 </div>
             </div>
-            <div class="form-group col">
+            <div class="form-group col" style="margin-bottom: 0;"">
                 <div class="input-group input-group-sm">
                     <div class="input-group-prepend">
                         <span class="input-group-text">%</span>
