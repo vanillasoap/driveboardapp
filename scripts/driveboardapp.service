@@ -1,11 +1,16 @@
 [Unit]
 Description=Lasersaur driveboardapp
-After=network.target
+After=network-online.target
+Wants=network.target systemd-networkd-wait.service
+
+StartLimitIntervalSec=500
+StartLimitBurst=5
 
 [Service]
-Type=simple
-Restart=always
-ExecStart=/usr/local/bin/python3.8 /root/driveboardapp/backend/app.py --cli
+Restart=on-failure
+RestartSec=5s
+
+ExecStart=/usr/local/bin/python3.8 /root/driveboardapp/backend/app.py -c
 
 [Install]
 WantedBy=multi-user.target
